@@ -1,0 +1,28 @@
+{
+  "name": "data-structures-algo",
+  "version": "1.0.0",
+  "description": "A repository for All algorithms implemented in Typescript (for educational purposes only)",
+  "keywords": [
+    "data-structures",
+    "algorithms",
+    "stack",
+    "list",
+    "queue",
+    "dp"
+  ],
+  "homepage": "https://github.com/shounakay/data-structures-algo#readme",
+  "bugs": {
+    "url": "https://github.com/shounakay/data-structures-algo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shounakay/data-structures-algo.git"
+  },
+  "license": "MIT",
+  "author": "Shounak Chavan",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
