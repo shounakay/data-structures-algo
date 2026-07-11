@@ -75,4 +75,19 @@ export class LinkedList<T> {
     }
     return deletedNode;
   }
+
+  find(value: T): LinkedListNode<T> | null {
+    if (!this.head) {
+      return null;
+    }
+    let currentNode: LinkedListNode<T> | null = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return currentNode;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return null;
+  }
 }
