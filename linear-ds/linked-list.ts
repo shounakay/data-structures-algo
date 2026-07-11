@@ -59,15 +59,20 @@ export class LinkedList<T> {
         this.tail = null;
       }
     }
+    let deletedNode: LinkedListNode<T> | null = null;
     let currentNode = this.head;
     while (currentNode?.next) {
       if (currentNode.next?.value === value) {
+        deletedNode = currentNode.next;
         currentNode.next = currentNode.next.next;
+        if (!currentNode.next) {
+          this.tail = currentNode;
+        }
         break;
       } else {
         currentNode = currentNode.next;
       }
     }
-    return null;
+    return deletedNode;
   }
 }
