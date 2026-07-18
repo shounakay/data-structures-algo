@@ -3,12 +3,15 @@ import { LinkedListNode } from "./linked-list-node";
 export class LinkedList<T> {
   #head: LinkedListNode<T> | null;
   #tail: LinkedListNode<T> | null;
+  #counter: number;
   constructor() {
     this.#head = null;
     this.#tail = null;
+    this.#counter = 0;
   }
   addNode(value: T): void {
     const newNode = new LinkedListNode(value);
+    this.#counter++;
     if (!this.#head) {
       this.#head = newNode;
       this.#tail = newNode;
@@ -24,6 +27,7 @@ export class LinkedList<T> {
     if (!this.#tail) {
       this.#tail = newNode;
     }
+    this.#counter++;
   }
 
   insert(value: T, index: number) {
@@ -45,6 +49,7 @@ export class LinkedList<T> {
           currentNode = currentNode.next;
         }
       }
+      this.#counter++;
     }
   }
 
@@ -72,6 +77,7 @@ export class LinkedList<T> {
         currentNode = currentNode.next;
       }
     }
+    this.#counter--;
     return deletedNode;
   }
 
@@ -88,5 +94,24 @@ export class LinkedList<T> {
       }
     }
     return null;
+  }
+
+  reverse() {
+    if (!this.#head) {
+      return;
+    }
+    let prevNode = this.#head;
+    let currentNode = this.#head.next;
+    this.#head.next = null;
+    this.#tail = this.#head;
+    while (currentNode) {
+      const nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+      currentNode = nextNode;
+      if (!nextNode) {
+        this.#head = prevNode;
+      }
+    }
   }
 }
